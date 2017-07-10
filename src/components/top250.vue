@@ -12,7 +12,8 @@
         </p>
         <p class="rate">
           <el-rate v-model="subject.rating.average" disabled text-color="#ff9900"></el-rate>
-          <span class="rate-value">{{subject.rating.average*2}}<i>&nbsp;&nbsp;({{subject.collect_count}}人已观看)</i></span>
+          <span
+            class="rate-value">{{subject.rating.average * 2}}<i>&nbsp;&nbsp;({{subject.collect_count}}人已观看)</i></span>
         </p>
       </div>
     </div>
@@ -76,11 +77,13 @@
     min-height: 500px;
     margin: 30px auto;
   }
-  #top250 h2{
+
+  #top250 h2 {
     margin-bottom: 20px;
     color: #007722;
     text-align: left;
   }
+
   .search-tag {
     padding: 10px;
     border-top: 1px dashed #e3ebec;
