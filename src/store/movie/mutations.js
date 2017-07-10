@@ -47,5 +47,14 @@ export const mutations = {
   },
   MOVIE_COMMENT (state, {comment}) {
     state.movieComment = comment
+  },
+  CELEBRITY_ID (state, {id}) {
+    state.celebrityId = id
+  },
+  CELEBRITY_DETAIL (state, {celebrityDetail}) {
+    state.celebrityDetail = celebrityDetail
+  },
+  US_BOX_LIST (state, {us_boxList}) {
+    state.us_boxList = us_boxList
   }
 }

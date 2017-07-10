@@ -28,6 +28,9 @@
         }, {
           title: 'Top250',
           url: '/top250'
+        }, {
+          title: '北美票房榜',
+          url: '/us_box'
         }]
       }
     },

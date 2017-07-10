@@ -37,5 +37,42 @@ export const actions = {
       commit('UP_COMBODY', {upcomBody: res});
       // console.log(res)
     })
+  },
+  getTop250 ({commit, state}) {
+    utils.get('/movie/top250', {
+      params: {
+        start: state.start,
+        count: 10
+      }
+    }).then(res => {
+      let subject = state.ranking250.subjects
+      for (let subject of res.subjects) {
+        subject.rating.average = subject.rating.average / 2;
+      }
+      // 将每次请求返回的res的rating.average / 2后再追加到原有数据上，
+      // 在这里操作是为了避免之前已经/2的数据再/2
+      if (subject !== undefined) {
+        res.subjects = subject.concat(res.subjects)
+      }
+      commit('LOAD_TOP250', {ranking250: res})
+    })
+  },
+  getMovieDetail ({commit, state}) {
+    utils.get(`/movie/subject/${state.id}`, {}).then(res => {
+      commit('MOVING_DETAIL', {movieDetail: res})
+    })
+  },
+  getCelebrityDetail ({commit, state}) {
+    utils.get(`/movie/celebrity/${state.celebrityId}`, {}).then(res => {
+      commit('CELEBRITY_DETAIL', {celebrityDetail: res})
+    })
+  },
+  getUs_box ({commit, state}) {
+    utils.get('/movie/us_box', {}).then(res => {
+      for (let item of res.subjects) {
+        item.subject.rating.average = item.subject.rating.average / 2;
+      }
+      commit('US_BOX_LIST', {us_boxList: res})
+    })
   }
 };

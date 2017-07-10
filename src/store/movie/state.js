@@ -15,7 +15,9 @@ export const state = {
     start: -1
   },
   loadingDetail: true, // 电影详情是否显示loading
-  ranking250: {}, // top 250列表
+  ranking250: {
+    // subjects: []
+  }, // top 250列表
   city: '广州',
   movieDetail: { // 电影详情
     rating: {},
@@ -23,5 +25,12 @@ export const state = {
   },
   id: '', // 电影ID
   start: 0, // top 250分页起点
-  movieComment: {} // 电影短评
+  movieComment: {}, // 电影短评
+  celebrityId: '',
+  celebrityDetail: {
+
+  },
+  us_boxList: {
+
+  }
 }

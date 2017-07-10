@@ -29,15 +29,22 @@ export const getters = {
     }
     return state.searchList
   },
+  // rankingList: state => {
+  //   state.ranking250.subjects.map(function (subject) {
+  //     subject.rating.average = subject.rating.average / 2
+  //   })
+  //   console.log(state.ranking250.subjects)
+  //   return state.ranking250
+  // },
   searchText: state => {
     return state.searchText
   },
   searchLoading: state => {
     return state.searchLoading
   },
-  ranking250: state => {
-    return state.ranking250
-  },
+  // ranking250: state => {
+  //   return state.ranking250
+  // },
   start: state => {
     return state.start
   },

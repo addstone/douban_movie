@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <v-head></v-head>
-    <keep-alive exclude="moviesDetail">
+    <keep-alive exclude="moviesDetail,celebrityDetail"><!--要想moviesDetail不使用keep-alive 必须在moviesDetail组件js部分添加name: 'moviesDetail' -->
       <router-view></router-view>
     </keep-alive>
   </div>
@@ -18,7 +18,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;

@@ -1,18 +1,18 @@
 <template>
   <div class="search-list">
-    <h2>搜索结果如下：</h2>
-    <div class="search-tag" v-for="subject in searchList.subjects">
-      <a class="search-img" @click="showDetail(subject.id)">
-        <img class="search-tag-img" :src="subject.images.small">
+    <h2>{{us_boxList.date}}：{{us_boxList.title}}</h2>
+    <div class="search-tag" v-for="item in us_boxList.subjects">
+      <a class="search-img" @click="showDetail(item.subject.id)">
+        <img class="search-tag-img" :src="item.subject.images.small">
       </a>
       <div class="search-brief">
-        <p class="title" @click="showDetail(subject.id)">{{subject.title}}</p>
+        <p class="title" @click="showDetail(item.subject.id)">{{item.subject.title}}</p>
         <p class="disc">
-          {{subject.year}}年<span v-for="cast in subject.casts">/{{cast.name}}</span>
+          {{item.subject.year}}年<span v-for="cast in item.subject.casts">/{{cast.name}}</span>
         </p>
         <p class="rate">
-          <el-rate v-model="subject.rating.average" disabled text-color="#ff9900"></el-rate>
-          <span class="rate-value">{{subject.rating.average * 2}}</span>
+          <el-rate v-model="item.subject.rating.average" disabled text-color="#ff9900"></el-rate>
+          <span class="rate-value">{{item.subject.rating.average * 2}}</span>
         </p>
       </div>
     </div>
@@ -24,9 +24,12 @@
     data () {
       return {}
     },
+    created (){
+      this.$store.dispatch('getUs_box')
+    },
     computed: {
-      searchList () {
-        return this.$store.getters.searchList
+      us_boxList () {
+        return this.$store.state.movie.us_boxList
       }
     },
     methods: {
